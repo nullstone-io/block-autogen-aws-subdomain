@@ -5,7 +5,7 @@ Nullstone Block creating an AWS Subdomain (e.g. `random-slug.nullstone.app`) wit
 ## Inputs
 
 - `subdomain: string`
-  - This represents the token to prepend the input domain block (i.e. the fqdn is represented by {var.subdomain}.<domain>.)
+  - This represents the token to prepend the input domain block (i.e. the fqdn is represented by `{var.subdomain}.<domain>.`)
   - Example: `subdomain = random-slug` will create `random-slug.nullstone.app`
 
 ## Outputs
