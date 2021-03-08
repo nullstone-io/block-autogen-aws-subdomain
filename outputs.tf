@@ -14,7 +14,7 @@ output "nameservers" {
 }
 
 output "domain_name" {
-  value       = local.domain_name
+  value       = data.ns_autogen_subdomain.subdomain.domain_name
   description = "string ||| The name of the root domain."
 }
 
