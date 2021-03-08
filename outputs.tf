@@ -17,8 +17,3 @@ output "domain_name" {
   value       = data.ns_autogen_subdomain.subdomain.domain_name
   description = "string ||| The name of the root domain."
 }
-
-output "cert_arn" {
-  value       = module.cert.certificate_arn
-  description = "string ||| If var.create_cert is enabled, the ARN of the SSL Certificate."
-}
