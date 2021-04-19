@@ -1,6 +1,11 @@
 output "name" {
-  value       = aws_route53_zone.this.name
-  description = "string ||| The created subdomain."
+  value       = ns_autogen_subdomain.subdomain.name
+  description = "string ||| The name that precedes the domain name for the created subdomain."
+}
+
+output "fqdn" {
+  value       = ns_autogen_subdomain.subdomain.fqdn
+  description = "string ||| The FQDN (fully-qualified domain name) for the created subdomain."
 }
 
 output "zone_id" {
@@ -14,6 +19,6 @@ output "nameservers" {
 }
 
 output "domain_name" {
-  value       = data.ns_autogen_subdomain.subdomain.domain_name
+  value       = ns_autogen_subdomain.subdomain.domain_name
   description = "string ||| The name of the root domain."
 }
