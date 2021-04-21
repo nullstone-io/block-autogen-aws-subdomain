@@ -1,9 +1,7 @@
-data "ns_autogen_subdomain" "subdomain" {
-  name = var.subdomain
-}
+resource "ns_autogen_subdomain" "subdomain" {}
 
 resource "aws_route53_zone" "this" {
-  name = data.ns_autogen_subdomain.subdomain.fqdn
+  name = ns_autogen_subdomain.subdomain.fqdn
   tags = data.ns_workspace.this.tags
 }
 

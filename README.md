@@ -4,13 +4,10 @@ Nullstone Block creating an AWS Subdomain from a Nullstone-generated subdomain (
 
 ## Inputs
 
-- `subdomain: string`
-  - This represents the token to prepend the input domain block (i.e. the fqdn is represented by `{var.subdomain}.<domain>.`)
-  - Example: `subdomain = random-slug` will create `random-slug.nullstone.app`
-
 ## Outputs
 
-- `name: string` - The created subdomain.
+- `name: string` - The name that precedes the domain name for the created subdomain.
+- `fqdn: string` - The FQDN (fully-qualified domain name) for the created subdomain.
 - `zone_id: string` - The zone ID of the AWS Route53 Zone for the created subdomain.
 - `nameservers: list(string)` - The list of nameservers of the AWS Route53 Zone for the created subdomain.
 - `domain_name: string` - The name of the root domain.
