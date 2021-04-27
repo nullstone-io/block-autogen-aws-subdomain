@@ -5,7 +5,7 @@ data "ns_subdomain" "subdomain" {
 
 resource "ns_autogen_subdomain" "autogen_subdomain" {
   subdomain_id = data.ns_subdomain.id
-  env = data.ns_workspace.this.env
+  env          = data.ns_workspace.this.env
 }
 
 resource "aws_route53_zone" "this" {
@@ -15,6 +15,6 @@ resource "aws_route53_zone" "this" {
 
 resource "ns_autogen_subdomain_delegation" "to_aws" {
   subdomain_id = data.ns_subdomain.id
-  env = data.ns_workspace.this.env
-  nameservers = aws_route53_zone.this.name_servers
+  env          = data.ns_workspace.this.env
+  nameservers  = aws_route53_zone.this.name_servers
 }
