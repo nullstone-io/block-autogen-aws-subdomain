@@ -22,3 +22,8 @@ output "domain_name" {
   value       = ns_autogen_subdomain.autogen_subdomain.domain_name
   description = "string ||| The name of the root domain."
 }
+
+output "cert_arn" {
+  value       = try(module.cert[0].certificate_arn, "")
+  description = "string ||| If var.create_cert is enabled, the ARN of the SSL Certificate."
+}
