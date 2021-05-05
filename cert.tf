@@ -1,5 +1,5 @@
 module "cert" {
-  source = "./cert"
+  source = "nullstone-modules/sslcert/aws"
 
   domain = {
     name    = aws_route53_zone.this.name
