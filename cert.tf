@@ -8,4 +8,6 @@ module "cert" {
 
   tags    = data.ns_workspace.this.tags
   enabled = var.create_cert
+
+  depends_on = [ns_autogen_subdomain_delegation.to_aws]
 }
