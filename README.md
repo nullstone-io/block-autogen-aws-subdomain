@@ -1,6 +1,6 @@
 # autogen-aws-subdomain
 
-Nullstone Block creating an AWS Subdomain from a Nullstone-generated subdomain (e.g. `random-slug.nullstone.app`). 
+Nullstone module to create an AWS Subdomain from a Nullstone-generated subdomain (e.g. `random-slug.nullstone.app`). 
 
 ## Inputs
 
