@@ -1,10 +1,10 @@
 output "name" {
-  value       = ns_autogen_subdomain.autogen_subdomain.dns_name
+  value       = local.subdomain_dns_name
   description = "string ||| The name that precedes the domain name for the created subdomain."
 }
 
 output "fqdn" {
-  value       = ns_autogen_subdomain.autogen_subdomain.fqdn
+  value       = local.subdomain_fqdn
   description = "string ||| The FQDN (fully-qualified domain name) for the created subdomain."
 }
 
@@ -19,6 +19,6 @@ output "nameservers" {
 }
 
 output "domain_name" {
-  value       = ns_autogen_subdomain.autogen_subdomain.domain_name
+  value       = local.subdomain_domain_name
   description = "string ||| The name of the root domain."
 }
