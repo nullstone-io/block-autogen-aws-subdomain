@@ -1,17 +1,23 @@
-resource "ns_autogen_subdomain" "autogen_subdomain" {
-  subdomain_id = data.ns_workspace.this.block_id
-  env_id       = data.ns_workspace.this.env_id
+data "ns_subdomain" "this" {
+  stack_id = data.ns_workspace.this.stack_id
+  block_id = data.ns_workspace.this.block_id
+  env_id   = data.ns_workspace.this.env_id
 }
 
 locals {
-  subdomain_domain_name = ns_autogen_subdomain.autogen_subdomain.domain_name
-  subdomain_dns_name    = ns_autogen_subdomain.autogen_subdomain.dns_name
-  subdomain_fqdn        = ns_autogen_subdomain.autogen_subdomain.fqdn
+  fqdn                  = data.ns_subdomain.this.fqdn
+  subdomain_domain_name = data.ns_subdomain.this.domain_name
 }
 
 resource "aws_route53_zone" "this" {
-  name = local.subdomain_fqdn
+  name = trimsuffix(local.fqdn, ".")
   tags = local.tags
+}
+
+locals {
+  subdomain_name        = aws_route53_zone.this.name
+  subdomain_zone_id     = aws_route53_zone.this.zone_id
+  subdomain_nameservers = aws_route53_zone.this.name_servers
 }
 
 resource "ns_autogen_subdomain_delegation" "to_aws" {
